@@ -3,6 +3,8 @@ const kevImage = document.querySelector(".kev img");
 const firework1 = document.querySelector(".firework-1");
 const firework2 = document.querySelector(".firework-2");
 
+const heart = document.querySelector(".heart");
+
 const numTwo = document.querySelector(".num-2");
 const numFive = document.querySelector(".num-5");
 
@@ -24,6 +26,25 @@ const music = new Audio("audio/happy-birthday.mp3");
 gsap.set(kevImage, { y: 40 });
 gsap.set(firework1, { scale: 0.0 });
 gsap.set(firework2, { scale: 0.0 });
+gsap.set(heart, { scale: 0.0 });
+gsap.set(
+  [
+    ".h",
+    ".a",
+    ".p",
+    ".p-2",
+    ".y",
+    ".b",
+    ".i-2",
+    ".r",
+    ".t",
+    ".h-2",
+    ".d",
+    ".a-2",
+    ".y-2",
+  ],
+  { opacity: 0 },
+);
 
 function changeNumTwo() {
   numTwo.src = numTwoSrc;
@@ -145,22 +166,29 @@ clickMeButton.addEventListener("click", () => {
     { duration: 0.5, scale: 1, opacity: 1, ease: "power1.inOut" },
     14.5,
   );
+  tl.to(
+    [
+      ".h",
+      ".a",
+      ".p",
+      ".p-2",
+      ".y",
+      ".b",
+      ".i-2",
+      ".r",
+      ".t",
+      ".h-2",
+      ".d",
+      ".a-2",
+      ".y-2",
+    ],
+    { duration: 0.5, opacity: 0, ease: "power1.inOut" },
+    16,
+  );
+
+  tl.to(heart, { duration: 1, scale: 1, ease: "bounce.out" }, 17);
 
   setTimeout(() => {
     clickMeButton.style.display = "none";
   }, 1000);
 });
-
-// function changeImgSrc() {
-//   kevImage.src = pleasedSrc;
-
-//   setTimeout(() => {
-//     kevImage.src = neutralSrc;
-//   }, 200);
-// }
-
-// setInterval(changeImgSrc, 3000);
-
-// happyButton.addEventListener("click", () => {
-//   kevImage.src = "img/kev-happy.svg";
-// });
