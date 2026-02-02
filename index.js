@@ -19,6 +19,8 @@ const happySrc = "img/kev-happy.svg";
 
 const clickMeButton = document.getElementById("click-me");
 
+const music = new Audio("audio/happy-birthday.mp3");
+
 gsap.set(kevImage, { y: 40 });
 gsap.set(firework1, { scale: 0.0 });
 gsap.set(firework2, { scale: 0.0 });
@@ -44,6 +46,7 @@ function changeNumFive() {
 setInterval(changeNumFive, 1000);
 
 clickMeButton.addEventListener("click", () => {
+  music.play();
   setTimeout(() => {
     kevImage.src = surprisedSrc;
   }, 1000);
